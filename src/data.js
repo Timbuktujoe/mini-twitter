@@ -1,4 +1,5 @@
-[{"id":1,"firstName":"Rhonda","lastName":"Heindrich","email":"rheindrich0@xing.com","avatar":"https://robohash.org/ducimusomnisvoluptatem.png?size=50x50&set=set1","message":"","message_ID":1,"message_createdAt":"5/8/2021"},
+const data = [
+    {"id":1,"firstName":"Rhonda","lastName":"Heindrich","email":"rheindrich0@xing.com","avatar":"https://robohash.org/ducimusomnisvoluptatem.png?size=50x50&set=set1","message":"","message_ID":1,"message_createdAt":"5/8/2021"},
 {"id":2,"firstName":"Arthur","lastName":"McLagain","email":"amclagain1@biblegateway.com","avatar":"https://robohash.org/laudantiumprovidentvoluptatem.png?size=50x50&set=set1","message":"","message_ID":2,"message_createdAt":"4/26/2021"},
 {"id":3,"firstName":"Adore","lastName":"Thaim","email":"athaim2@howstuffworks.com","avatar":"https://robohash.org/veldolorut.png?size=50x50&set=set1","message":"","message_ID":3,"message_createdAt":"4/1/2021"},
 {"id":4,"firstName":"Mitchael","lastName":"Hobble","email":"mhobble3@opensource.org","avatar":"https://robohash.org/itaquequoharum.png?size=50x50&set=set1","message":"","message_ID":4,"message_createdAt":"7/27/2020"},
@@ -97,4 +98,6 @@
 {"id":97,"firstName":"Sigmund","lastName":"Torfin","email":"storfin2o@qq.com","avatar":"https://robohash.org/dignissimosvoluptastotam.png?size=50x50&set=set1","message":"","message_ID":97,"message_createdAt":"3/28/2021"},
 {"id":98,"firstName":"Rafa","lastName":"Borrel","email":"rborrel2p@slate.com","avatar":"https://robohash.org/quoaccusantiumsed.png?size=50x50&set=set1","message":"","message_ID":98,"message_createdAt":"12/20/2020"},
 {"id":99,"firstName":"Rowney","lastName":"Esposito","email":"resposito2q@statcounter.com","avatar":"https://robohash.org/temporautvoluptatibus.png?size=50x50&set=set1","message":"","message_ID":99,"message_createdAt":"3/5/2021"},
-{"id":100,"firstName":"Bernard","lastName":"Muffett","email":"bmuffett2r@bloglines.com","avatar":"https://robohash.org/utaliquamquia.png?size=50x50&set=set1","message":"","message_ID":100,"message_createdAt":"12/16/2020"}]
+{"id":100,"firstName":"Bernard","lastName":"Muffett","email":"bmuffett2r@bloglines.com","avatar":"https://robohash.org/utaliquamquia.png?size=50x50&set=set1","message":"","message_ID":100,"message_createdAt":"12/16/2020"}
+]
+export default data
