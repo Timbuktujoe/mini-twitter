@@ -1,3 +1,7 @@
 .sorting_icon{
   cursor: pointer;
 }
+.welcome-user {
+  display: flex;
+  padding: 5px;
+}

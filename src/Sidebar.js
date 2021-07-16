@@ -110,7 +110,13 @@ export default function Sidebar({ userData, setUserData }) {
                 })}
             >
                 <Toolbar>
-                    <Typography variant="h6" noWrap className={classes.title} >
+                    <Typography variant="h6" noWrap style={{height: "12vh"}}className={classes.title} >
+                    
+                    <ListItemAvatar className="welcome-user">
+                                <Avatar src={userData[1].avatar} alt="user-avatar" />
+                                <ListItemText> Welcome {userData[1].firstName} </ListItemText>
+                            </ListItemAvatar>
+                           
                         <Searchbar/>
                      </Typography>
                     <IconButton
