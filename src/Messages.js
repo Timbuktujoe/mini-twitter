@@ -1,17 +1,15 @@
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Spinner from 'react-bootstrap/Spinner'
-import data from './data'
 import {BiSort} from 'react-icons/bi'
 import Searchbar from './Searchbar'
-import { useState } from 'react'
-export default function Messages() {
-    const [userData, setUserData] = useState(data)
-
+export default function Messages({userData, setUserData}) {
+    
     const handleDate =(b)=>{
         console.log(userData)
-        const sortedMessages = userData.slice().sort((a, b) => a.message_createdAt > b.message_createdAt)
-        setUserData(sortedMessages)
+        const sortedPosts = userData.slice().sort((a, b) =>
+        a.message_createdAt.split('/').reverse().join().localeCompare(b.message_createdAt.split('/').reverse().join()));
+        setUserData(sortedPosts)
     }
 
     return (
