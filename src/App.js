@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <Row md={4}>
+        <Row md={8}>
           <Col>1 of 3</Col>
-          <Col xs={6} ><Messages /></Col>
+          <Col xs={12} md={6} ><Messages /></Col>
           <Col>3 of 3</Col>
         </Row>
       </Container>

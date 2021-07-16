@@ -7,12 +7,18 @@ import Searchbar from './Searchbar'
 import { useState } from 'react'
 export default function Messages() {
     const [userData, setUserData] = useState(data)
-    console.log(userData[0])
+
+    const handleDate =(b)=>{
+        console.log(userData)
+        const sortedMessages = userData.slice().sort((a, b) => a.message_createdAt > b.message_createdAt)
+        setUserData(sortedMessages)
+    }
+
     return (
 
         <>
             <Searchbar/>  
-            <p>Sort by date <BiSort className="sorting_icon"/></p>
+            <p>Sort by date <BiSort className="sorting_icon" onClick={handleDate}/></p>
             {userData.length  ? userData.map((i) =>
             
                 <Card border="primary" style={{ margin: "10px" }}>
