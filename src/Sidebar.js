@@ -155,10 +155,10 @@ export default function Sidebar({ userData, setUserData, component }) {
 
                 <List>
                     {userData.length ? userData.map((user) => (
-                        <ListItem button key={user.id}>
-                            <ListItemText primary={user.firstName} secondary={user.lastName} />
+                        <ListItem button key={Math.random(Math.floor()*10000)}>
+                            <ListItemText primary={user.name.first} secondary={user.name.last} />
                             <ListItemAvatar>
-                                <Avatar src={user.avatar} alt={user.firstName} />
+                                <Avatar src={user.avatarURL} alt={user.name.last} />
                             </ListItemAvatar>
                         </ListItem>
                     )) : <Spinner animation="border" role="status">
