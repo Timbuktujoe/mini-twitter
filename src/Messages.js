@@ -38,7 +38,7 @@ export default function Messages({userData, setUserData}) {
                    <Card.Text>
                        {msg.tweet}
                    </Card.Text>
-                   <Link to={`/messages/${msg._id.$oid}`}>
+                   <Link to={`/${msg._id.$oid}`}>
                    <Button variant="outline-primary">Check it out</Button>
                    </Link>
                </Card.Body>
