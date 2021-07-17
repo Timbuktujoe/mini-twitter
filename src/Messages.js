@@ -3,8 +3,6 @@ import { BiSort } from 'react-icons/bi'
 import Button from 'react-bootstrap/Button'
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
-import Spinner from 'react-bootstrap/Spinner'
-import {BiSort} from 'react-icons/bi'
 import {useState} from 'react'
 
 export default function Messages({userData, setUserData}) {
@@ -14,12 +12,12 @@ export default function Messages({userData, setUserData}) {
         console.log(userData)
         if(isAscending){
             const sortedPosts = userData.slice().sort((a, b) => 
-            a.message_createdAt.split('/').reverse().join().localeCompare(b.message_createdAt.split('/').reverse().join()));
+            a.createdAt.split('/').reverse().join().localeCompare(b.createdAt.split('/').reverse().join()));
             setUserData(sortedPosts)
             setIsAscending(!isAscending)
         } else {
             const sortedPosts = userData.slice().sort((a, b) => 
-            b.message_createdAt.split('/').reverse().join().localeCompare(a.message_createdAt.split('/').reverse().join()));
+            b.createdAt.split('/').reverse().join().localeCompare(a.createdAt.split('/').reverse().join()));
             setUserData(sortedPosts)
             setIsAscending(!isAscending)
         }
@@ -32,7 +30,7 @@ export default function Messages({userData, setUserData}) {
         
         <>
             <p>Sort by date <BiSort className="sorting_icon" onClick={handleDate} /></p>
-            {messages.length ? messages.map((msg) =>
+            {userData.length ? userData.map((msg) =>
                <Card key={Math.random(Math.floor()*10000)} border="primary" style={{ margin: "10px" }}>
                <Card.Body >
                    <Card.Text>
