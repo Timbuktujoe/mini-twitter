@@ -17,7 +17,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Messages from './Messages'
 import Spinner from 'react-bootstrap/Spinner'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
-   
+
     appBar: {
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
@@ -65,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(0, 1),
-        // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-start',
     },
@@ -87,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Sidebar({ userData, setUserData }) {
+export default function Sidebar({ userData, setUserData, component }) {
 
     const classes = useStyles();
     const theme = useTheme();
@@ -111,15 +109,9 @@ export default function Sidebar({ userData, setUserData }) {
                 })}
             >
                 <Toolbar>
-                    <Typography variant="h6" noWrap style={{height: "12vh"}}className={classes.title} >
-                    
-                    <ListItemAvatar className="welcome-user">
-                                <Avatar src={userData[1].avatar} alt="user-avatar" />
-                                <ListItemText> Welcome {userData[1].firstName} </ListItemText>
-                            </ListItemAvatar>
-                           
-                        <Searchbar/>
-                     </Typography>
+                    <Typography variant="h6" noWrap style={{ height: "12vh", paddingTop: "3vh" }} className={classes.title} >
+                        <Searchbar />
+                    </Typography>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -137,10 +129,11 @@ export default function Sidebar({ userData, setUserData }) {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                <Container style={{paddingTop: "5vh"}}>
+                <Container style={{ paddingTop: "5vh" }}>
+
                     <Row md={8}>
-                        <Col><UserPage userData={userData} setUserData={setUserData}/></Col>
-                        <Col xs={12} md={6} ><Messages userData={userData} setUserData={setUserData} /></Col>
+                        <Col><UserPage userData={userData} setUserData={setUserData} /></Col>
+                        {component}
                         <Col>3 of 3</Col>
                     </Row>
                 </Container>
@@ -163,7 +156,7 @@ export default function Sidebar({ userData, setUserData }) {
                 <List>
                     {userData.length ? userData.map((user) => (
                         <ListItem button key={user.id}>
-                            <ListItemText primary={user.firstName} secondary={user.lastName}/>
+                            <ListItemText primary={user.firstName} secondary={user.lastName} />
                             <ListItemAvatar>
                                 <Avatar src={user.avatar} alt={user.firstName} />
                             </ListItemAvatar>
