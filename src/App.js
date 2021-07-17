@@ -22,7 +22,7 @@ function App() {
      <Switch>
        <Route exact path="/"><Signin /></Route>
      <Route path="/messages">  <Sidebar component={<Col xs={12} md={6} ><Messages userData={userData} messages={messages} setUserData={setUserData} /></Col>} userData={userData} setUserData={setUserData} /> </Route>  
-     <Route path="/:ID"> <Sidebar component={ <Message userData={userData} userID={userID} messages={messages}/> } userData={userData} setUserData={setUserData} /> </Route>
+     <Route path="/:ID"> <Sidebar component={ <Message userData={userData} userID={userID} messages={messages} setMessages={setMessages}/> } userData={userData} setUserData={setUserData} /> </Route>
      </Switch>
     </div>
   );

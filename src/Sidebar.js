@@ -22,7 +22,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Searchbar from './Searchbar';
 import UserPage from './UserPage';
-
+import { useState, useEffect } from 'react';
 
 
 
@@ -90,7 +90,7 @@ export default function Sidebar({ userData, setUserData, component }) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-
+    const [users, setUsers] = useState([])
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -98,6 +98,17 @@ export default function Sidebar({ userData, setUserData, component }) {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+    useEffect(() => {
+
+        fetch(`https://crossover-minitwitter.herokuapp.com/api/users`, {
+            method: 'get'
+        })
+            .then((res) => res.json())
+            .then(async (data) => {
+                setUsers(data)
+                
+            })
+    }, [])
 
     return (
         <div className={classes.root}>
@@ -132,9 +143,9 @@ export default function Sidebar({ userData, setUserData, component }) {
                 <Container style={{ paddingTop: "5vh" }}>
 
                     <Row md={8}>
-                        <Col><UserPage userData={userData} setUserData={setUserData} /></Col>
+                        <Col><UserPage userData={userData} setUserData={setUsers} /></Col>
                         {component}
-                        <Col>3 of 3</Col>
+                        <Col></Col>
                     </Row>
                 </Container>
             </main>
@@ -154,7 +165,7 @@ export default function Sidebar({ userData, setUserData, component }) {
                 </div>
 
                 <List>
-                    {userData.length ? userData.map((user) => (
+                    {users.length ? users.map((user) => (
                         <ListItem button key={Math.random(Math.floor()*10000)}>
                             <ListItemText primary={user.name.first} secondary={user.name.last} />
                             <ListItemAvatar>
