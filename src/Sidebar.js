@@ -110,7 +110,7 @@ export default function Sidebar({ userData, setUserData, component }) {
             >
                 <Toolbar>
                     <Typography variant="h6" noWrap style={{ height: "12vh", paddingTop: "3vh" }} className={classes.title} >
-                        <Searchbar />
+                        <Searchbar userData={userData} setUserData={setUserData} />
                     </Typography>
                     <IconButton
                         color="inherit"
