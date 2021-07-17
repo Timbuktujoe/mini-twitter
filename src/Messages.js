@@ -1,8 +1,10 @@
+import Spinner from 'react-bootstrap/Spinner'
+import { BiSort } from 'react-icons/bi'
 import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import Spinner from 'react-bootstrap/Spinner'
 import {BiSort} from 'react-icons/bi'
-import Message from "./Message"
 import {useState} from 'react'
 
 export default function Messages({userData, setUserData}) {
@@ -25,13 +27,25 @@ export default function Messages({userData, setUserData}) {
         // a.message_createdAt.split('/').reverse().join().localeCompare(b.message_createdAt.split('/').reverse().join()));
         // setUserData(sortedPosts)
     }
-
+   
     return (
-
+        
         <>
-            <p>Sort by date <BiSort className="sorting_icon" onClick={handleDate}/></p>
-            {userData.length  ? userData.map((msg) =>
-               <Message key={msg.messageID} messageID={msg.message_ID} firstName={msg.firstName} lastName={msg.lastName} id={msg.id} timeStamp={msg.message_createdAt}/>
+            <p>Sort by date <BiSort className="sorting_icon" onClick={handleDate} /></p>
+            {messages.length ? messages.map((msg) =>
+               <Card key={Math.random(Math.floor()*10000)} border="primary" style={{ margin: "10px" }}>
+               <Card.Body >
+                   <Card.Text>
+                       {msg.tweet}
+                   </Card.Text>
+                   <Link to={`/messages/${msg._id.$oid}`}>
+                   <Button variant="outline-primary">Check it out</Button>
+                   </Link>
+               </Card.Body>
+               <Card.Footer>
+                   <small className="text-muted">Posted on {msg.createdAt}</small>
+               </Card.Footer>
+           </Card>
             ) : <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
