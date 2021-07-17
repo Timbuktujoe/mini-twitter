@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import {BiSort} from 'react-icons/bi'
 import Message from "./Message"
 
-export default function Messages({userData, setUserData, component}) {
+export default function Messages({userData, setUserData}) {
 
     const handleDate =(b)=>{
         console.log(userData)
@@ -18,8 +18,7 @@ export default function Messages({userData, setUserData, component}) {
         <>
             <p>Sort by date <BiSort className="sorting_icon" onClick={handleDate}/></p>
             {userData.length  ? userData.map((msg) =>
-               <Message key={msg.id} firstName={msg.firstName} lastName={msg.lastName} id={msg.id} timeStamp={msg.message_createdAt}/>
-               
+               <Message key={msg.messageID} messageID={msg.message_ID} firstName={msg.firstName} lastName={msg.lastName} id={msg.id} timeStamp={msg.message_createdAt}/>
             ) : <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
