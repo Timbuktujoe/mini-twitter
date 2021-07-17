@@ -3,14 +3,27 @@ import Card from 'react-bootstrap/Card'
 import Spinner from 'react-bootstrap/Spinner'
 import {BiSort} from 'react-icons/bi'
 import Message from "./Message"
+import {useState} from 'react'
 
 export default function Messages({userData, setUserData}) {
 
+    const [isAscending, setIsAscending] = useState(true)
     const handleDate =(b)=>{
         console.log(userData)
-        const sortedPosts = userData.slice().sort((a, b) =>
-        a.message_createdAt.split('/').reverse().join().localeCompare(b.message_createdAt.split('/').reverse().join()));
-        setUserData(sortedPosts)
+        if(isAscending){
+            const sortedPosts = userData.slice().sort((a, b) => 
+            a.message_createdAt.split('/').reverse().join().localeCompare(b.message_createdAt.split('/').reverse().join()));
+            setUserData(sortedPosts)
+            setIsAscending(!isAscending)
+        } else {
+            const sortedPosts = userData.slice().sort((a, b) => 
+            b.message_createdAt.split('/').reverse().join().localeCompare(a.message_createdAt.split('/').reverse().join()));
+            setUserData(sortedPosts)
+            setIsAscending(!isAscending)
+        }
+        // const sortedPosts = userData.slice().sort((a, b) =>
+        // a.message_createdAt.split('/').reverse().join().localeCompare(b.message_createdAt.split('/').reverse().join()));
+        // setUserData(sortedPosts)
     }
 
     return (
