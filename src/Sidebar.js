@@ -22,6 +22,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Searchbar from './Searchbar';
+import UserPage from './UserPage';
 
 
 
@@ -136,9 +137,9 @@ export default function Sidebar({ userData, setUserData }) {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                <Container>
+                <Container style={{paddingTop: "5vh"}}>
                     <Row md={8}>
-                        <Col>1 of 3</Col>
+                        <Col><UserPage userData={userData} setUserData={setUserData}/></Col>
                         <Col xs={12} md={6} ><Messages userData={userData} setUserData={setUserData} /></Col>
                         <Col>3 of 3</Col>
                     </Row>
