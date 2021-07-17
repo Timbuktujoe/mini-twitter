@@ -2,9 +2,10 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Spinner from 'react-bootstrap/Spinner'
 import {BiSort} from 'react-icons/bi'
-import Searchbar from './Searchbar'
+
+
 export default function Messages({userData, setUserData}) {
-    
+
     const handleDate =(b)=>{
         console.log(userData)
         const sortedPosts = userData.slice().sort((a, b) =>
@@ -15,11 +16,10 @@ export default function Messages({userData, setUserData}) {
     return (
 
         <>
-            <Searchbar/>  
             <p>Sort by date <BiSort className="sorting_icon" onClick={handleDate}/></p>
             {userData.length  ? userData.map((i) =>
             
-                <Card border="primary" style={{ margin: "10px" }}>
+                <Card key={i.id} border="primary" style={{ margin: "10px" }}>
                     <Card.Header>@{i.firstName}_{i.lastName}</Card.Header>
                     <Card.Body>
                         <Card.Title>Funny Title</Card.Title>
